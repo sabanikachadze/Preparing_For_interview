@@ -7,7 +7,7 @@ public class Main {
 
     static void main() {
 
-        System.out.println(Compress.compress("aabccc"));
+        System.out.println(Compress.compress("aaggb  sshwv"));
 
     }
 }

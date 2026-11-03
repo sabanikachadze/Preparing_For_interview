@@ -35,11 +35,11 @@ public class Parser {
             throw new IllegalArgumentException("age out of range: " + age);
         }
 
-        if (!email.contains("@")){
+        if (!email.contains("@")) {
             throw new IllegalArgumentException("email has no @: " + email);
         }
 
-            return new Person(name, realAge , email);
+        return new Person(name, realAge, email);
     }
 
 
@@ -51,4 +51,37 @@ public class Parser {
             return false;
         }
     }
+
+
+    public static int parseNumber(String s) {
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Score must be a number", e);
+        }
+    }
+
+
+    record Score(String name, int score) {
+    }
+
+    static Score parseScore(String line) {
+
+        String[] fields = line.split(";", -1);
+
+        if (fields.length != 2) {
+            throw new IllegalArgumentException("Expected 2 fields");
+        }
+
+        String name = fields[0];
+
+        int realScore = parseNumber(fields[1]);
+
+        if (realScore < 0 || realScore > 100) {
+            throw new IllegalArgumentException("Score must be 0-100");
+        }
+
+        return new Score(name, realScore);
+    }
+
 }

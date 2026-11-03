@@ -6,17 +6,31 @@ import java.util.TreeMap;
 public class Compress {
 
     public static String compress(String s) {
-        Map<Character, Integer> Chars = new TreeMap<>();
+
+        if (s.isEmpty()){
+            return "";
+        }
+
         StringBuilder compressedChars = new StringBuilder();
+        int amount = 0;
+        char currentChar = s.charAt(0);
 
         for (char chr : s.toCharArray()) {
 
-            Chars.merge(chr, 1, Integer::sum);
+            if (currentChar != chr) {
+                compressedChars.append(currentChar);
+                compressedChars.append(amount);
+
+                currentChar = chr;
+                amount = 0;
+            }
+
+            amount++;
         }
 
-        for (Map.Entry<Character, Integer> e : Chars.entrySet()) {
-            compressedChars.append(e.getKey()).append(e.getValue());
-        }
+        compressedChars.append(currentChar);
+        compressedChars.append(amount);
+
         return compressedChars.toString();
     }
 
