@@ -4,7 +4,7 @@ package org.example;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import org.example.DSA.LastOccurrence;
+import org.example.DSA.MaskEmail;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        System.out.println(LastOccurrence.lastOccurrence(new int[]{1, 2, 2, 2, 3}, 2));
+        System.out.println(MaskEmail.maskEmail("nikachadzesaba27@gmail.com"));
     }
 
 
