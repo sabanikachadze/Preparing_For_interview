@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        System.out.println(MaskEmail.maskEmail("nikachadzesaba27@gmail.com"));
+        System.out.println(1 / 2);
     }
 
 
